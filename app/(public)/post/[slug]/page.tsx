@@ -9,9 +9,9 @@ interface Props { params: { slug: string } }
 
 export async function generateMetadata({ params }: Props) {
   await connectDB()
-  const post = await Post.findOne({ slug: params.slug, published: true }).lean()
+  const post = await Post.findOne({ slug: params.slug, published: true }).lean() as any
   if (!post) return {}
-  return { title: (post as { title: string }).title, description: (post as { excerpt: string }).excerpt }
+  return { title: post.title, description: post.excerpt }
 }
 
 export default async function PostPage({ params }: Props) {

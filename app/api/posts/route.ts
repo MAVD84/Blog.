@@ -47,6 +47,13 @@ export async function POST(req: NextRequest) {
   await connectDB()
   const body = await req.json()
 
+  if (!body.title?.trim()) {
+    return NextResponse.json({ error: 'El título es requerido' }, { status: 400 })
+  }
+  if (!body.content?.trim()) {
+    return NextResponse.json({ error: 'El contenido es requerido' }, { status: 400 })
+  }
+
   const slug = slugify(body.title, { lower: true, strict: true })
 
   const post = await Post.create({

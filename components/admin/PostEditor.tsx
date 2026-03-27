@@ -42,6 +42,14 @@ export function PostEditor({ categories, initialData }: PostEditorProps) {
   }
 
   const handleSave = async (publish?: boolean) => {
+    if (!form.title.trim()) {
+      setError('El título es requerido.')
+      return
+    }
+    if (!form.content.trim()) {
+      setError('El contenido es requerido. Escribe algo en el campo de contenido.')
+      return
+    }
     setSaving(true)
     setError('')
     try {

@@ -22,7 +22,7 @@ export default async function HomePage() {
         <p className="font-body text-xs tracking-[0.3em] uppercase text-ink-400 mb-3">Bienvenido al blog</p>
         <h1 className="font-display text-5xl md:text-6xl text-ink-900 leading-none mb-4">
           Ideas, reflexiones<br />
-          <span className="text-accent">&amp; aprendizajes.</span>
+          <span className="text-accent">&amp; más.</span>
         </h1>
         <div className="rule-accent w-16" />
       </div>
